@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Mercearia Dois Irmãos - Sistema Logístico</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+margin:0;
+padding:20px;
+}
+
+h1{
+text-align:center;
+}
+
+.container{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input,select,button{
+padding:8px;
+margin:5px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+border:1px solid #ccc;
+padding:8px;
+text-align:center;
+}
+
+.estoque-alto{
+color:green;
+font-weight:bold;
+}
+
+.estoque-medio{
+color:orange;
+font-weight:bold;
+}
+
+.estoque-baixo{
+color:red;
+font-weight:bold;
+}
+
+.prioridade-alta{
+color:red;
+font-weight:bold;
+}
+
+.prioridade-media{
+color:orange;
+font-weight:bold;
+}
+
+.prioridade-baixa{
+color:green;
+font-weight:bold;
+}
+
+button{
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📦 Mercearia Dois Irmãos - Sistema Logístico</h1>
+
+<div class="container">
+
+<h2>Registrar Produto</h2>
+
+<input id="nomeProduto" placeholder="Nome do produto">
+<input id="quantidadeProduto" type="number" placeholder="Quantidade">
+<input id="precoProduto" type="number" placeholder="Preço">
+
+<button onclick="adicionarProduto()">Adicionar</button>
+
+</div>
+
+<div class="container">
+
+<h2>Estoque</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Produto</th>
+<th>Quantidade</th>
+<th>Nível</th>
+<th>Preço</th>
+<th>Ação</th>
+</tr>
+</thead>
+
+<tbody id="tabelaEstoque"></tbody>
+
+</table>
+
+</div>
+
+<div class="container">
+
+<h2>Registrar Venda</h2>
+
+<input id="produtoVenda" placeholder="Produto vendido">
+<input id="quantidadeVenda" type="number" placeholder="Quantidade">
+
+<button onclick="registrarVenda()">Registrar</button>
+
+<h3>💰 Lucro do Dia</h3>
+
+<p id="lucroDia">R$ 0.00</p>
+
+<canvas id="graficoVendas"></canvas>
+
+</div>
+
+<div class="container">
+
+<h2>🚚 Registrar Pedido</h2>
+
+<input id="clientePedido" placeholder="Nome do cliente">
+
+<input id="enderecoPedido" placeholder="Endereço">
+
+<select id="produtoPedido">
+<option value="">Escolher produto</option>
+</select>
+
+<input id="quantidadePedido" type="number" placeholder="Quantidade">
+
+<select id="prioridadePedido">
+<option value="Baixa">Prioridade Baixa</option>
+<option value="Média">Prioridade Média</option>
+<option value="Alta">Prioridade Alta</option>
+</select>
+
+<button onclick="registrarPedido()">Registrar Pedido</button>
+
+</div>
+
+<div class="container">
+
+<h2>📦 Pedidos</h2>
+
+<ul id="listaPedidos"></ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+<div class="container">
+
+<h2>⚠️ Sistema</h2>
+
+<button onclick="limparSistema()" style="background:red;color:white">
+🔥 Apagar TODOS os dados
+</button>
+
+</div>
+
+</body>
+</html>
